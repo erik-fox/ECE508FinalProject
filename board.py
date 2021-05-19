@@ -63,6 +63,6 @@ class map:
             line=fp.readline()
             line=line.rstrip("\n")
             line=line.split(" ")
-            point=city(line[0],line[1:len(line)-1])
+            point=city(line[0],line[1:len(line)])
             self.list.append(point)
         

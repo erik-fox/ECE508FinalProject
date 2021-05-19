@@ -1,5 +1,5 @@
-San Francisco Chicago Los Angeles Manila Tokyo
-chicago montreal atlanta mexico_city los_angeles san_francisco
+san_francisco chicago los_angeles manila tokyo
+chicago montreal alanta mexico_city los_angeles san_francisco
 montreal chicago new_york washington
 new_york london madrid washington montreal
 washington montreal new_york atlanta

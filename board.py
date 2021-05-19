@@ -84,3 +84,31 @@ class role:
     def movestation(self, newcity):
         self.city.moveresearchstation()
         newcity.buildresearchstation()
+
+class contingencyplanner(role):
+    def __init__(self,city):
+        self.eventcard=[]
+        super().__init__(city)
+    def geteventcard(self,ecard):
+        if len(self.eventcard) ==0:
+            self.eventcard.append(ecard)
+    def removeeventcard(self):
+            self.eventcard.clear()
+
+class dispatcher(role):
+    def __init__(self,city):
+        super().__init__(city)
+    def moveplayer(player,newcity)
+        player.movecity(newcity)
+
+class medic(role):
+    def __init__(self,city):
+        super().__init__(city)
+    def clearyellow(self):
+        self.city.yellowcubes=0
+    def clearblack(self):
+        self.city.blackcubes=0
+    def clearblue(self):
+        self.city.bluecubes=0
+    def clearred(self):
+        self.city.redcubes=0

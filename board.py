@@ -79,3 +79,8 @@ class role:
         self.city.decblackcube()
     def removeyellow(self):
         self.city.decyellowcube()
+    def buildstation(self):
+        self.city.buildresearchstation()
+    def movestation(self,newcity):
+        self.city.moveresearchstation()
+        newcity.buildresearchstation()

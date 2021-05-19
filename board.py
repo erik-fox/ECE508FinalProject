@@ -34,13 +34,13 @@ class city:
     def incbluecube(self):
         if self.bluecubes < 3:
             self.bluecubes = self.bluecubes + 1
-    def decredcube(self):
+    def decbluecube(self):
         if self.bluecubes>0:
             self.bluecubes=self.bluecubes -1
     def incblackcubes(self):
         if self.blackcubes < 3:
             self.blackcubes = self.blackcubes + 1
-    def decredcube(self):
+    def decblackcube(self):
         if self.blackcubes>0:
             self.blackcubes=self.blackcubes -1
     def incyellowcubes(self):
@@ -65,4 +65,17 @@ class map:
             line=line.split(" ")
             point=city(line[0],line[1:len(line)])
             self.list[line[0]]=point
-        
+
+class role:
+    def __init__(self,city):
+        self.city=city
+    def movecity(self,newcity):
+        self.city=newcity
+    def removeblue(self):
+        self.city.decbluecube()
+    def removered(self):
+        self.city.decredcube()
+    def removeblack(self):
+        self.city.decblackcube()
+    def removeyellow(self):
+        self.city.decyellowcube()

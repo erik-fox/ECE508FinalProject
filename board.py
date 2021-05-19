@@ -112,3 +112,39 @@ class medic(role):
         self.city.bluecubes=0
     def clearred(self):
         self.city.redcubes=0
+
+class operationsexpert(role):
+    def __init__(self,city):
+        super.__init__(city)
+
+class quarantinespecialist(role):
+    def __init__(self,city):
+        super().__init__(city)
+
+class researcher(role):
+    def __init__(self,city):
+        super().__init__(city)
+
+class scientist(role):
+    def __init__(self,city):
+        super().__init__(city)
+
+class player:
+    def __init__(self,playertype,city):
+        if playertype =='contingency_planner'
+            self.role= contingencyplanner(city)
+        else if playertype == 'dispatcher'
+            self.role= dispatcher(city)
+        else if playertype == 'medic'
+            self.role= medic(city)
+        else if playertype == 'operations_expert'
+            self.role= operationsexpert(city)
+        else if playertype == 'quarantine_specialist'
+            self.role= quarantinespecialist(city)
+        else if playertype == 'researcher'
+            self.role= researcher(city)
+        else if playertype == 'scientist'
+            self.role= scientist(city)
+        self.hand=[]
+#Actions:  include role specific actions
+

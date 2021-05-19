@@ -57,12 +57,12 @@ class city:
 
 class map:
     def __init__(self,text):
-        self.list=[]
+        self.list=dict()
         fp=open(text,'r')
-        for i in fp:
-            line=fp.readline()
+        lines=fp.readlines()
+        for line in lines:
             line=line.rstrip("\n")
             line=line.split(" ")
             point=city(line[0],line[1:len(line)])
-            self.list.append(point)
+            self.list[line[0]]=point
         

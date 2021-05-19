@@ -67,9 +67,9 @@ class map:
             self.list[line[0]]=point
 
 class role:
-    def __init__(self,city):
+    def __init__(self, city):
         self.city=city
-    def movecity(self,newcity):
+    def movecity(self, newcity):
         self.city=newcity
     def removeblue(self):
         self.city.decbluecube()
@@ -81,6 +81,6 @@ class role:
         self.city.decyellowcube()
     def buildstation(self):
         self.city.buildresearchstation()
-    def movestation(self,newcity):
+    def movestation(self, newcity):
         self.city.moveresearchstation()
         newcity.buildresearchstation()

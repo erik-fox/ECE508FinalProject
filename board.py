@@ -15,3 +15,45 @@ class playercarddeck:
         self.discardpile=[]
     def playcard(self):
         self.discardpile.append(self.playercards.pop(random.randrange(0,len(self.playercards))))
+
+class city:
+    def __init__(self,name,connectedcities):
+        self.city=name
+        self.connections=connectedcities
+        self.redcubes=0
+        self.bluecubes=0
+        self.blackcubes=0
+        self.yellowcubes=0
+        self.researchstation=0
+    def incredcube(self):
+        if self.redcubes < 3:
+            self.redcubes = self.redcubes + 1
+    def decredcube(self):
+        if self.redcubes>0:
+            self.redcubes=self.redcubes -1
+    def incbluecube(self):
+        if self.bluecubes < 3:
+            self.bluecubes = self.bluecubes + 1
+    def decredcube(self):
+        if self.bluecubes>0:
+            self.bluecubes=self.bluecubes -1
+    def incblackcubes(self):
+        if self.blackcubes < 3:
+            self.blackcubes = self.blackcubes + 1
+    def decredcube(self):
+        if self.blackcubes>0:
+            self.blackcubes=self.blackcubes -1
+    def incyellowcubes(self):
+        if self.yellowcubes < 3:
+            self.yellowcubes = self.yellowcubes + 1
+    def decyellowcube(self):
+        if self.yellowcubes>0:
+            self.yellowcubes=self.yellowcubes -1
+    def buildresearchstation(self):
+        if self.researchstation < 1:
+            self.researchstation= self.researchstation +1
+    def moveresearchstation(self):
+        self.researchstation =0
+
+class map:
+    def __init__(self):

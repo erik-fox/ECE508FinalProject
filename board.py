@@ -146,7 +146,7 @@ class player:
         elif playertype == 'scientist':
             self.role= scientist(city)
         self.hand=[]
-    #Actions:  include role specific actions
+    #Actions:  include role specific actions; might include ellaborating on existing role subclasses; might just be player level specific with card sharing between players
 
 class board:
     def __init__(self,mapfile):

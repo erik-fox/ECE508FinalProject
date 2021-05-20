@@ -98,7 +98,7 @@ class contingencyplanner(role):
 class dispatcher(role):
     def __init__(self,city):
         super().__init__(city)
-    def moveplayer(player,newcity)
+    def moveplayer(player,newcity):
         player.movecity(newcity)
 
 class medic(role):
@@ -131,20 +131,28 @@ class scientist(role):
 
 class player:
     def __init__(self,playertype,city):
-        if playertype =='contingency_planner'
+        if playertype =='contingency_planner':
             self.role= contingencyplanner(city)
-        else if playertype == 'dispatcher'
+        elif playertype == 'dispatcher':
             self.role= dispatcher(city)
-        else if playertype == 'medic'
+        elif playertype == 'medic':
             self.role= medic(city)
-        else if playertype == 'operations_expert'
+        elif playertype == 'operations_expert':
             self.role= operationsexpert(city)
-        else if playertype == 'quarantine_specialist'
+        elif playertype == 'quarantine_specialist':
             self.role= quarantinespecialist(city)
-        else if playertype == 'researcher'
+        elif playertype == 'researcher':
             self.role= researcher(city)
-        else if playertype == 'scientist'
+        elif playertype == 'scientist':
             self.role= scientist(city)
         self.hand=[]
-#Actions:  include role specific actions
+    #Actions:  include role specific actions
 
+class board:
+    def __init__(self,mapfile):
+        self.infectiondeck=infectioncarddeck()
+        self.playerdeck=playercarddeck()
+        self.map= map(mapfile)
+        self.cureddiseases={'yellow':0,'red':0,'blue':0,'black':0}
+        self.infectionrate=[2,2,2,3,3,4,4]
+        self.outbreaks=0

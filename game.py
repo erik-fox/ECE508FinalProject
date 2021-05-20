@@ -7,7 +7,7 @@ def game():
     b.map.list['atlanta'].buildresearchstation()
     b.researchstations=5
 
-##give each player cards and a pawn
+##select role
     numplayers=int(input('How many players?'))
     players=[]
     for i in range (numplayers):
@@ -15,5 +15,13 @@ def game():
             print("role "+str(j)+":" +b.roles[j])
         roleselect=int(input('Enter number of role'))
         players.append(player(b.roles.pop(roleselect),b.map.list['atlanta']))
-        print(players[i].role)
+##distribute non epidemic player cards based on num of players
+##infect 9 cities
+##play game
+####Start with player 1
+####display each players role, hand, map, cured, outbreak num and infection rate
+####Do 4 actions:ensure all legal actions are enabled
+####draw 2 player cards
+####infect cities
+#### check if game is over before going to next player
 game()

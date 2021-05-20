@@ -57,6 +57,10 @@ class city:
 
 class map:
     def __init__(self,text):
+        self.redcities=['sydney','jakarta','ho_chi_minh_city','manila','bankok','hong_kong','taipei','osaka','tokyo','shanghai','beijing','seoul']
+        self.bluecities=['san_francisco','chicago','atlanta','montreal','washington','new_york','london','madrid','paris','essen','milan','st_petersburg']
+        self.yellowcities=['los_angeles','miami','mexico_city','bogota','lima','santiago','buenos_aires','sao_paulo','lagos','kinshasa','johannesburg','khartoum']
+        self.blackcities=['algiers','cairo','istanbul','moscow','baghdad','tehran','karachi','delhi','kolkata','riyadh','mumbai','chennai']
         self.list=dict()
         fp=open(text,'r')
         lines=fp.readlines()
@@ -75,3 +79,6 @@ class board:
         self.cureddiseases={'yellow':0,'red':0,'blue':0,'black':0}
         self.infectionrate=[2,2,2,3,3,4,4]
         self.outbreaks=0
+        self.researchstations = 6
+        self.roles=['contingency_planner','dispatcher','medic','operations_expert','quarantine_specialist','researcher','scientist']
+        self.diseasecubes={'yellow':24,'red':24,'blue':24,'black':24}

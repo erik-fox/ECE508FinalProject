@@ -18,7 +18,7 @@ class role:
         self.city.moveresearchstation()
         newcity.buildresearchstation()
 
- class contingencyplanner(role):
+class contingencyplanner(role):
     def __init__(self,city):
         self.eventcard=[]
         super().__init__(city)
@@ -26,7 +26,7 @@ class role:
         if len(self.eventcard) ==0:
             self.eventcard.append(ecard)
     def removeeventcard(self):
-            self.eventcard.clear()
+        self.eventcard.clear()
 
 class dispatcher(role):
     def __init__(self,city):
@@ -48,7 +48,7 @@ class medic(role):
 
 class operationsexpert(role):
     def __init__(self,city):
-        super.__init__(city)
+        super().__init__(city)
 
 class quarantinespecialist(role):
     def __init__(self,city):
@@ -79,5 +79,5 @@ class player:
         elif playertype == 'scientist':
             self.role= scientist(city)
         self.hand=[]
-    #Actions:  include role specific actions; might include ellaborating on existing role subclasses; might just be player level specific with card sharing between players
+    #Actions:  include role specific actions; might include ellaborating on existing role subclasses; might just be player level specific with card sharing between player
 

@@ -1,3 +1,4 @@
+from board import city
 class role:
     def __init__(self, city):
         self.city=city
@@ -17,7 +18,7 @@ class role:
         self.city.moveresearchstation()
         newcity.buildresearchstation()
 
-class contingencyplanner(role):
+ class contingencyplanner(role):
     def __init__(self,city):
         self.eventcard=[]
         super().__init__(city)

@@ -56,9 +56,9 @@ class city:
 
 class map:
     def __init__(self,text):
-        self.redcities=['sydney','jakarta','ho_chi_minh_city','manila','bankok','hong_kong','taipei','osaka','tokyo','shanghai','beijing','seoul']
+        self.redcities=['sydney','jakarta','ho_chi_minh_city','manila','bangkok','hong_kong','taipei','osaka','tokyo','shanghai','beijing','seoul']
         self.bluecities=['san_francisco','chicago','atlanta','montreal','washington','new_york','london','madrid','paris','essen','milan','st_petersburg']
-        self.yellowcities=['los_angeles','miami','mexico_city','bogota','lima','santiago','buenos_aires','sao_paulo','lagos','kinshasa','johannesburg','khartoum']
+        self.yellowcities=['los_angeles','miami','mexico_city','bogota','lima','santiago','buenos_aires','sao_paolo','lagos','kinshasa','johannesburg','khartoum']
         self.blackcities=['algiers','cairo','istanbul','moscow','baghdad','tehran','karachi','delhi','kolkata','riyadh','mumbai','chennai']
         self.list=dict()
         fp=open(text,'r')

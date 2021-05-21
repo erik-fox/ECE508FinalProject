@@ -67,9 +67,12 @@ def game():
         print("Yellow cities:")
         for i in range(len(b.map.yellowcities)):
            print(str(b.map.list[b.map.yellowcities[i]].city)+':  blue:'+str(b.map.list[b.map.yellowcities[i]].bluecubes)+'  yellow:'+str(b.map.list[b.map.yellowcities[i]].yellowcubes)+'  black:'+str(b.map.list[b.map.yellowcities[i]].blackcubes)+'  red:'+str(b.map.list[b.map.yellowcities[i]].redcubes))
+           print("connections:"
+           print(b.map.list[b.map.yellowcities[i]].connections)
         print("Black cities:")
         for i in range(len(b.map.blackcities)):
            print(str(b.map.list[b.map.blackcities[i]].city)+':  blue:'+str(b.map.list[b.map.blackcities[i]].bluecubes)+'  yellow:'+str(b.map.list[b.map.blackcities[i]].yellowcubes)+'  black:'+str(b.map.list[b.map.blackcities[i]].blackcubes)+'  red:'+str(b.map.list[b.map.blackcities[i]].redcubes))
+           print(b.map.list[b.map.blackcities[i]].connections)
 ####Start with player 1
 ####display each players role, hand, map, cured, outbreak num and infection rate
 ####Do 4 actions:ensure all legal actions are enabled; Give user all there legal options( limited by role, location, hand); add list of research cities for shuttle flights

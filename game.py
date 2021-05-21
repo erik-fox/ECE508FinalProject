@@ -39,6 +39,9 @@ def displaygamestate(b,players):
     print("INFECTION RATE:")
     print(" "+str(b.infectionrate[0]))
     print('\n')
+    print("CURED DISEASES")
+    print(b.cureddiseases)
+    print('\n')
     for i in range(len(players)):
         print("Player "+str(i)+" Hand:")
         print(players[i].hand)
@@ -118,9 +121,11 @@ def game():
                 print("Available actions")
                 print("1: Movement action")
                 if players[i].role.city.city in players[i].hand:
-                    if b.researchstations>0:
+                    if players[i].role.city.researchstation ==0:
+                        if b.researchstations>0:
                             print("2: Build research station")
-                print("3: Treat disease")
+                if players[i].role.city.redcubes or players[i].role.city.bluecubes or players[i].role.city.blackcubes or players[i].role.city.yellowcubes:
+                    print("3: Treat disease")
                 print("4: Share Knowledge")
                 print("5: Discover a cure")
                 action=int(input("Enter selection"))
@@ -139,9 +144,26 @@ def game():
                     players[i].role.movecity(b.map.list[destination])
 
                 elif action ==2:
+                    players[i].hand.remove(players[i].role.city.city)
                     players[i].role.city.buildresearchstation()
                     b.researchstations=b.researchstations-1
-               # elif action ==3:
+                elif action ==3:
+                    if players[i].role.city.yellowcubes:
+                        if input('yellow? y/n') == 'y':
+                            players[i].role.city.decyellowcube()
+                            b.diseasecubes['yellow']=b.diseasecubes['yellow']-1
+                    elif players[i].role.city.bluecubes:
+                        if input('blue? y/n') == 'y':
+                            players[i].role.city.decbluecube()
+                            b.diseasecubes['blue']=b.diseasecubes['blue']-1
+                    elif players[i].role.city.blackcubes:
+                        if input('black? y/n') == 'y':
+                            players[i].role.city.decblackcube()
+                            b.diseasecubes['black']=b.diseasecubes['black']-1
+                    else:
+                        if input('red? y/n') == 'y':
+                            players[i].role.city.decredcube()
+                            b.diseasecubes['red']=b.diseasecubes['red']-1
                # elif action ==4:
                # else:
 ####draw 2 player cards

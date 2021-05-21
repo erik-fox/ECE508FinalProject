@@ -107,8 +107,8 @@ def game():
             for i in range(len(players)):
                 print("Player "+str(i)+" Hand:")
                 print(players[i].hand)
+                print('\n') 
             
-
 
 ####Do 4 actions:ensure all legal actions are enabled; Give user all there legal options( limited by role, location, hand); add list of research cities for shuttle flights
 ####draw 2 player cards

@@ -1,5 +1,50 @@
 from board import board
 from player import player
+def displaygamestate(b,players):
+    print("MAP:")
+    print("Yellow cities:")
+    for i in range(len(b.map.yellowcities)):
+        print(str(b.map.list[b.map.yellowcities[i]].city)+':  blue:'+str(b.map.list[b.map.yellowcities[i]].bluecubes)+'  yellow:'+str(b.map.list[b.map.yellowcities[i]].yellowcubes)+'  black:'+str(b.map.list[b.map.yellowcities[i]].blackcubes)+'  red:'+str(b.map.list[b.map.yellowcities[i]].redcubes))
+        print("researchstation:")
+        print(b.map.list[b.map.yellowcities[i]].researchstation)
+        print("connections:")
+        print(b.map.list[b.map.yellowcities[i]].connections)
+        print('\n')
+    print("Black cities:")
+    for i in range(len(b.map.blackcities)):
+        print(str(b.map.list[b.map.blackcities[i]].city)+':  blue:'+str(b.map.list[b.map.blackcities[i]].bluecubes)+'  yellow:'+str(b.map.list[b.map.blackcities[i]].yellowcubes)+'  black:'+str(b.map.list[b.map.blackcities[i]].blackcubes)+'  red:'+str(b.map.list[b.map.blackcities[i]].redcubes))
+        print("researchstation:")
+        print(b.map.list[b.map.blackcities[i]].researchstation)
+        print("connections:")
+        print(b.map.list[b.map.blackcities[i]].connections)
+        print('\n')
+    print("Blue cities:")
+    for i in range(len(b.map.bluecities)):
+        print(str(b.map.list[b.map.bluecities[i]].city)+':  blue:'+str(b.map.list[b.map.bluecities[i]].bluecubes)+'  yellow:'+str(b.map.list[b.map.bluecities[i]].yellowcubes)+'  black:'+str(b.map.list[b.map.bluecities[i]].blackcubes)+'  red:'+str(b.map.list[b.map.bluecities[i]].redcubes))
+        print("researchstation:")
+        print(b.map.list[b.map.bluecities[i]].researchstation)
+        print("connections:")
+        print(b.map.list[b.map.bluecities[i]].connections)
+        print('\n')
+    print("Red cities:")
+    for i in range(len(b.map.redcities)):
+        print(str(b.map.list[b.map.redcities[i]].city)+':  blue:'+str(b.map.list[b.map.redcities[i]].bluecubes)+'  yellow:'+str(b.map.list[b.map.redcities[i]].yellowcubes)+'  black:'+str(b.map.list[b.map.redcities[i]].blackcubes)+'  red:'+str(b.map.list[b.map.redcities[i]].redcubes))
+        print("researchstation:")
+        print(b.map.list[b.map.redcities[i]].researchstation)
+        print("connections:")
+        print(b.map.list[b.map.redcities[i]].connections)
+        print('\n')
+    print("NUMBER OF OUTBREAKS:")
+    print(" "+str(b.outbreaks))
+    print("INFECTION RATE:")
+    print(" "+str(b.infectionrate[0]))
+    print('\n')
+    for i in range(len(players)):
+        print("Player "+str(i)+" Hand:")
+        print(players[i].hand)
+        print('\n') 
+            
+
 def game():
 #SETUP
 ##set out the board and place research station at pieces
@@ -67,55 +112,11 @@ def game():
 ####display each players role, hand, map, cured, outbreak num and infection rate
     while True:
         for i in range(numplayers):
-            displaygamestate(b)
+            displaygamestate(b,players)
 ####Do 4 actions:ensure all legal actions are enabled; Give user all there legal options( limited by role, location, hand); add list of research cities for shuttle flights
 ####draw 2 player cards
 ####infect cities
 #### check if game is over before going to next player
         break
 game()
-
-def displaygamestate(b):
-    print("MAP:")
-    print("Yellow cities:")
-    for i in range(len(b.map.yellowcities)):
-        print(str(b.map.list[b.map.yellowcities[i]].city)+':  blue:'+str(b.map.list[b.map.yellowcities[i]].bluecubes)+'  yellow:'+str(b.map.list[b.map.yellowcities[i]].yellowcubes)+'  black:'+str(b.map.list[b.map.yellowcities[i]].blackcubes)+'  red:'+str(b.map.list[b.map.yellowcities[i]].redcubes))
-        print("researchstation:")
-        print(b.map.list[b.map.yellowcities[i]].researchstation)
-        print("connections:")
-        print(b.map.list[b.map.yellowcities[i]].connections)
-        print('\n')
-    print("Black cities:")
-    for i in range(len(b.map.blackcities)):
-        print(str(b.map.list[b.map.blackcities[i]].city)+':  blue:'+str(b.map.list[b.map.blackcities[i]].bluecubes)+'  yellow:'+str(b.map.list[b.map.blackcities[i]].yellowcubes)+'  black:'+str(b.map.list[b.map.blackcities[i]].blackcubes)+'  red:'+str(b.map.list[b.map.blackcities[i]].redcubes))
-        print("researchstation:")
-        print(b.map.list[b.map.blackcities[i]].researchstation)
-        print("connections:")
-        print(b.map.list[b.map.blackcities[i]].connections)
-        print('\n')
-     print("Blue cities:")
-     for i in range(len(b.map.bluecities)):
-        print(str(b.map.list[b.map.bluecities[i]].city)+':  blue:'+str(b.map.list[b.map.bluecities[i]].bluecubes)+'  yellow:'+str(b.map.list[b.map.bluecities[i]].yellowcubes)+'  black:'+str(b.map.list[b.map.bluecities[i]].blackcubes)+'  red:'+str(b.map.list[b.map.bluecities[i]].redcubes))
-        print("researchstation:")
-        print(b.map.list[b.map.bluecities[i]].researchstation)
-        print("connections:")
-        print(b.map.list[b.map.bluecities[i]].connections)
-        print('\n')
-     print("Red cities:")
-     for i in range(len(b.map.redcities)):
-        print(str(b.map.list[b.map.redcities[i]].city)+':  blue:'+str(b.map.list[b.map.redcities[i]].bluecubes)+'  yellow:'+str(b.map.list[b.map.redcities[i]].yellowcubes)+'  black:'+str(b.map.list[b.map.redcities[i]].blackcubes)+'  red:'+str(b.map.list[b.map.redcities[i]].redcubes))
-        print("researchstation:")
-        print(b.map.list[b.map.redcities[i]].researchstation)
-        print("connections:")
-        print(b.map.list[b.map.redcities[i]].connections)
-        print('\n')
-      print("NUMBER OF OUTBREAKS:")
-      print(" "+str(b.outbreaks))
-      print("INFECTION RATE:")
-      print(" "+str(b.infectionrate[0]))
-      for i in range(len(players)):
-        print("Player "+str(i)+" Hand:")
-        print(players[i].hand)
-        print('\n') 
-            
 

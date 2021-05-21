@@ -42,6 +42,9 @@ def displaygamestate(b,players):
     print("CURED DISEASES")
     print(b.cureddiseases)
     print('\n')
+    print("AVAILABLE DISEASE CUBES")
+    print(b.diseasecubes)
+    print('\n')
     for i in range(len(players)):
         print("Player "+str(i)+" Hand:")
         print(players[i].hand)
@@ -85,31 +88,43 @@ def game():
         if b.infectiondeck.discardpile[i] in b.map.redcities:
             if i<=2:
                 b.map.list[b.infectiondeck.discardpile[i]].redcubes=3
+                b.diseasecubes['red']=b.diseasecubes['red']-3
             elif i<=5:
                 b.map.list[b.infectiondeck.discardpile[i]].redcubes=2
+                b.diseasecubes['red']=b.diseasecubes['red']-2
             else:
                 b.map.list[b.infectiondeck.discardpile[i]].redcubes=1
+                b.diseasecubes['red']=b.diseasecubes['red']-1
         if b.infectiondeck.discardpile[i] in b.map.bluecities:
             if i<=2:
                 b.map.list[b.infectiondeck.discardpile[i]].bluecubes=3
+                b.diseasecubes['blue']=b.diseasecubes['blue']-3
             elif i<=5:
                 b.map.list[b.infectiondeck.discardpile[i]].bluecubes=2
+                b.diseasecubes['blue']=b.diseasecubes['blue']-2
             else:
                 b.map.list[b.infectiondeck.discardpile[i]].bluecubes=1
+                b.diseasecubes['blue']=b.diseasecubes['blue']-1
         if b.infectiondeck.discardpile[i] in b.map.blackcities:
             if i<=2:
                 b.map.list[b.infectiondeck.discardpile[i]].blackcubes=3
+                b.diseasecubes['black']=b.diseasecubes['black']-3
             elif i<=5:
                 b.map.list[b.infectiondeck.discardpile[i]].blackcubes=2
+                b.diseasecubes['black']=b.diseasecubes['black']-2
             else:
                 b.map.list[b.infectiondeck.discardpile[i]].blackcubes=1
+                b.diseasecubes['black']=b.diseasecubes['black']-1
         if b.infectiondeck.discardpile[i] in b.map.yellowcities:
             if i<=2:
                 b.map.list[b.infectiondeck.discardpile[i]].yellowcubes=3
+                b.diseasecubes['yellow']=b.diseasecubes['yellow']-3
             elif i<=5:
                 b.map.list[b.infectiondeck.discardpile[i]].yellowcubes=2
+                b.diseasecubes['yellow']=b.diseasecubes['yellow']-2
             else:
                 b.map.list[b.infectiondeck.discardpile[i]].yellowcubes=1
+                b.diseasecubes['yellow']=b.diseasecubes['yellow']-1
 ##play game
 ####Start with player 1
 ####display each players role, hand, map, cured, outbreak num and infection rate

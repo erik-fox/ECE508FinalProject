@@ -15,7 +15,6 @@ class playercarddeck:
         self.discardpile=[]
     def playcard(self):
         self.discardpile.append(self.playercards.pop(random.randrange(0,len(self.playercards))))
-
 class city:
     def __init__(self,name,connectedcities):
         self.city=name

@@ -27,11 +27,13 @@ def game():
             while True:
                 b.playerdeck.playcard()
                 if b.playerdeck.discardpile[len(b.playerdeck.discardpile)-1]=='Epidemic':
-                    b.playerdeck.playercards.append(b.playerdeck.discardpile[len(b.playerdeck.discardpile)-1])
+                    b.playerdeck.playercards.append(b.playerdeck.discardpile.pop())
                 else:
                     players[j].hand.append(b.playerdeck.discardpile.pop())
                     break
             print(players[j].hand)
+    print(b.playerdeck.playercards)
+    print(b.playerdeck.discardpile)
 ##infect 9 cities
 ##play game
 ####Start with player 1

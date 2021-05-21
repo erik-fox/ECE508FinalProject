@@ -36,37 +36,37 @@ def game():
         b.infectiondeck.playcard()
         if b.infectiondeck.discardpile[i] in b.map.redcities:
             if i<=2:
-                b.map.list[b.infectiondeck.infectioncards[i]].redcubes=3
+                b.map.list[b.infectiondeck.discardpile[i]].redcubes=3
             elif i<=5:
-                b.map.list[b.infectiondeck.infectioncards[i]].redcubes=2
+                b.map.list[b.infectiondeck.discardpile[i]].redcubes=2
             else:
-                b.map.list[b.infectiondeck.infectioncards[i]].redcubes=1
+                b.map.list[b.infectiondeck.discardpile[i]].redcubes=1
         if b.infectiondeck.discardpile[i] in b.map.bluecities:
             if i<=2:
-                b.map.list[b.infectiondeck.infectioncards[i]].bluecubes=3
+                b.map.list[b.infectiondeck.discardpile[i]].bluecubes=3
             elif i<=5:
-                b.map.list[b.infectiondeck.infectioncards[i]].bluecubes=2
+                b.map.list[b.infectiondeck.discardpile[i]].bluecubes=2
             else:
-                b.map.list[b.infectiondeck.infectioncards[i]].bluecubes=1
+                b.map.list[b.infectiondeck.discardpile[i]].bluecubes=1
         if b.infectiondeck.discardpile[i] in b.map.blackcities:
             if i<=2:
-                b.map.list[b.infectiondeck.infectioncards[i]].blackcubes=3
+                b.map.list[b.infectiondeck.discardpile[i]].blackcubes=3
             elif i<=5:
-                b.map.list[b.infectiondeck.infectioncards[i]].blackcubes=2
+                b.map.list[b.infectiondeck.discardpile[i]].blackcubes=2
             else:
-                b.map.list[b.infectiondeck.infectioncards[i]].blackcubes=1
+                b.map.list[b.infectiondeck.discardpile[i]].blackcubes=1
         if b.infectiondeck.discardpile[i] in b.map.yellowcities:
             if i<=2:
-                b.map.list[b.infectiondeck.infectioncards[i]].yellowcubes=3
-            elif i<=6:
-                b.map.list[b.infectiondeck.infectioncards[i]].yellowcubes=2
+                b.map.list[b.infectiondeck.discardpile[i]].yellowcubes=3
+            elif i<=5:
+                b.map.list[b.infectiondeck.discardpile[i]].yellowcubes=2
             else:
-                b.map.list[b.infectiondeck.infectioncards[i]].yellowcubes=1
-        print('infectioncity' + b.map.list[b.infectiondeck.infectioncards[i]].city)
-        print(b.map.list[b.infectiondeck.infectioncards[i]].yellowcubes)
-        print(b.map.list[b.infectiondeck.infectioncards[i]].redcubes)
-        print(b.map.list[b.infectiondeck.infectioncards[i]].blackcubes)
-        print(b.map.list[b.infectiondeck.infectioncards[i]].bluecubes)
+                b.map.list[b.infectiondeck.discardpile[i]].yellowcubes=1
+        print('infectioncity' + b.map.list[b.infectiondeck.discardpile[i]].city)
+        print(b.map.list[b.infectiondeck.discardpile[i]].yellowcubes)
+        print(b.map.list[b.infectiondeck.discardpile[i]].redcubes)
+        print(b.map.list[b.infectiondeck.discardpile[i]].blackcubes)
+        print(b.map.list[b.infectiondeck.discardpile[i]].bluecubes)
 ##play game
 ####Start with player 1
 ####display each players role, hand, map, cured, outbreak num and infection rate

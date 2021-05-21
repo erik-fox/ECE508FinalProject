@@ -117,7 +117,9 @@ def game():
             for j in range(4):
                 print("Available actions")
                 print("1: Movement action")
-                print("2: Build research station")
+                if players[i].role.city.city in players[i].hand:
+                    if b.researchstations>0:
+                            print("2: Build research station")
                 print("3: Treat disease")
                 print("4: Share Knowledge")
                 print("5: Discover a cure")
@@ -126,12 +128,19 @@ def game():
                     print("legal moves:")
                     if players[i].role.city.city in players[i].hand:
                         destination=input('Enter any city')
+                        players[i].hand.remove(players[i].role.city.city)
                     else:
                         print(players[i].role.city.connections)
                         print(players[i].hand)
                         destination=input('Enter name of above cities')
+                        if destination in players[i].hand:
+                            if destination not in players[i].role.city.connections:
+                                players[i].hand.remove(destination)
                     players[i].role.movecity(b.map.list[destination])
-               # elif action ==2:
+
+                elif action ==2:
+                    players[i].role.city.buildresearchstation()
+                    b.researchstations=b.researchstations-1
                # elif action ==3:
                # elif action ==4:
                # else:

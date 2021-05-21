@@ -114,8 +114,31 @@ def game():
         for i in range(numplayers):
             displaygamestate(b,players)
 ####Do 4 actions:ensure all legal actions are enabled; Give user all there legal options( limited by role, location, hand); add list of research cities for shuttle flights
+            for j in range(4):
+                print("Available actions")
+                print("1: Movement action")
+                print("2: Build research station")
+                print("3: Treat disease")
+                print("4: Share Knowledge")
+                print("5: Discover a cure")
+                action=int(input("Enter selection"))
+                if action == 1:
+                    print("legal moves:")
+                    if players[i].role.city.city in players[i].hand:
+                        destination=input('Enter any city')
+                    else:
+                        print(players[i].role.city.connections)
+                        print(players[i].hand)
+                        destination=input('Enter name of above cities')
+                    players[i].role.movecity(b.map.list[destination])
+               # elif action ==2:
+               # elif action ==3:
+               # elif action ==4:
+               # else:
 ####draw 2 player cards
+          #  for j in range(2):
 ####infect cities
+          #  for j in range(b.infectionrate[0]):
 #### check if game is over before going to next player
         break
 game()

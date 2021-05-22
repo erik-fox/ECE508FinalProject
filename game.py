@@ -262,7 +262,7 @@ def game():
                                 if b.cureddiseases['yellow'] ==0:
                                     if b.map.list[b.infectiondeck.discardpile[len(b.infectiondeck.discardpile)-1]].yellowcubes==3:
                                         for m in range(len(b.map.list[b.infectiondeck.discardpile[len(b.infectiondeck.discardpile)-1]].connections)):
-                                            b.map.list[b.infectiondeck.discardpile[len(b.infectiondeck.discardpile)-1]].connections[m].yellowcube+=1
+                                            b.map.list[b.map.list[b.infectiondeck.discardpile[len(b.infectiondeck.discardpile)-1]].connections[m]].yellowcube+=1
                                             b.diseasecubes['yellow']-=1
                                     else:
                                         b.map.list[b.infectiondeck.discardpile[len(b.infectiondeck.discardpile)-1]].incyellowcubes()
@@ -271,7 +271,7 @@ def game():
                                 if b.cureddiseases['blue'] ==0:
                                     if b.map.list[b.infectiondeck.discardpile[len(b.infectiondeck.discardpile)-1]].bluecubes==3:
                                         for m in range(len(b.map.list[b.infectiondeck.discardpile[len(b.infectiondeck.discardpile)-1]].connections)):
-                                            b.map.list[b.infectiondeck.discardpile[len(b.infectiondeck.discardpile)-1]].connections[m].bluecube+=1
+                                            b.map.list[b.map.list[b.infectiondeck.discardpile[len(b.infectiondeck.discardpile)-1]].connections[m]].bluecube+=1
                                             b.diseasecubes['blue']-=1
                                     else:
                                         b.map.list[b.infectiondeck.discardpile[len(b.infectiondeck.discardpile)-1]].incbluecube()
@@ -280,7 +280,7 @@ def game():
                                 if b.cureddiseases['red'] ==0:
                                     if b.map.list[b.infectiondeck.discardpile[len(b.infectiondeck.discardpile)-1]].redcubes==3:
                                         for m in range(len(b.map.list[b.infectiondeck.discardpile[len(b.infectiondeck.discardpile)-1]].connections)):
-                                            b.map.list[b.infectiondeck.discardpile[len(b.infectiondeck.discardpile)-1]].connections[m].redcube+=1
+                                            b.map.list[b.map.list[b.infectiondeck.discardpile[len(b.infectiondeck.discardpile)-1]].connections[m]].redcube+=1
                                             b.diseasecubes['red']-=1
                                     else:
                                         b.map.list[b.infectiondeck.discardpile[len(b.infectiondeck.discardpile)-1]].incredcube()
@@ -289,7 +289,7 @@ def game():
                                 if b.cureddiseases['black'] ==0:
                                     if b.map.list[b.infectiondeck.discardpile[len(b.infectiondeck.discardpile)-1]].blackcubes==3:
                                         for m in range(len(b.map.list[b.infectiondeck.discardpile[len(b.infectiondeck.discardpile)-1]].connections)):
-                                            b.map.list[b.infectiondeck.discardpile[len(b.infectiondeck.discardpile)-1]].connections[m].blackcube+=1
+                                            b.map.list[b.map.list[b.infectiondeck.discardpile[len(b.infectiondeck.discardpile)-1]].connections[m]].blackcube+=1
                                             b.diseasecubes['black']-=1
                                     else:
                                         b.map.list[b.infectiondeck.discardpile[len(b.infectiondeck.discardpile)-1]].incblackcubes()
@@ -298,7 +298,40 @@ def game():
 ####infect cities
             for j in range(b.infectionrate[0]):
                 b.infectiondeck.playcard()
-                
+                if b.infectiondeck.discardpile[len(b.infectiondeck.discardpile)-1] in b.map.yellowcities:
+                    if b.map.list[b.infectiondeck.discardpile[len(b.infectiondeck.discardpile)-1]].yellowcubes==3:
+                        for m in range( len(b.map.list[b.infectiondeck.discardpile[len(b.infectiondeck.discardpile)-1]].connections)):
+                            b.map.list[b.map.list[b.infectiondeck.discardpile[len(b.infectiondeck.discardpile)-1]].connections[m]].yellowcubes+=1
+                            b.diseasecubes['yellow']-=1
+                    else:
+                        b.map.list[b.infectiondeck.discardpile[len(b.infectiondeck.discardpile)-1]].incyellowcubes()
+                        b.diseasecubes['yellow']-=1
+                if b.infectiondeck.discardpile[len(b.infectiondeck.discardpile)-1] in b.map.bluecities:
+                    if b.map.list[b.infectiondeck.discardpile[len(b.infectiondeck.discardpile)-1]].bluecubes==3:
+                        for m in range( len(b.map.list[b.infectiondeck.discardpile[len(b.infectiondeck.discardpile)-1]].connections)):
+                            b.map.list[b.map.list[b.infectiondeck.discardpile[len(b.infectiondeck.discardpile)-1]].connections[m]].bluecubes+=1
+                            b.diseasecubes['blue']-=1
+                    else:
+                        b.map.list[b.infectiondeck.discardpile[len(b.infectiondeck.discardpile)-1]].incbluecube()
+                        b.diseasecubes['blue']-=1
+                if b.infectiondeck.discardpile[len(b.infectiondeck.discardpile)-1] in b.map.redcities:
+                    if b.map.list[b.infectiondeck.discardpile[len(b.infectiondeck.discardpile)-1]].redcubes==3:
+                        for m in range( len(b.map.list[b.infectiondeck.discardpile[len(b.infectiondeck.discardpile)-1]].connections)):
+                            b.map.list[b.map.list[b.infectiondeck.discardpile[len(b.infectiondeck.discardpile)-1]].connections[m]].redcubes+=1
+                            b.diseasecubes['red']-=1
+                    else:
+                        b.map.list[b.infectiondeck.discardpile[len(b.infectiondeck.discardpile)-1]].incredcube()
+                        b.diseasecubes['red']-=1
+                if b.infectiondeck.discardpile[len(b.infectiondeck.discardpile)-1] in b.map.blackcities:
+                    if b.map.list[b.infectiondeck.discardpile[len(b.infectiondeck.discardpile)-1]].blackcubes==3:
+                        for m in range( len(b.map.list[b.infectiondeck.discardpile[len(b.infectiondeck.discardpile)-1]].connections)):
+                            b.map.list[b.map.list[b.infectiondeck.discardpile[len(b.infectiondeck.discardpile)-1]].connections[m]].blackcubes+=1
+                            b.diseasecubes['black']-=1
+                    else:
+                        b.map.list[b.infectiondeck.discardpile[len(b.infectiondeck.discardpile)-1]].incblackcubes()
+                        b.diseasecubes['black']-=1
+
+            input('continue')
 #### check if game is over before going to next player
         #break
 game()

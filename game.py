@@ -228,25 +228,28 @@ def game():
                         players[i].hand.pop(int(input("which yellow card would you like to play"))) 
                         players[i].hand.pop(int(input("which yellow card would you like to play")))
                         players[i].hand.pop(int(input("which yellow card would you like to play")))
-                    
+                        b.cureddiseases['yellow']=1 
                     if numblue>=5 and b.cureddiseases['blue']==0:
                         players[i].hand.pop(int(input("which blue card would you like to play"))) 
                         players[i].hand.pop(int(input("which blue card would you like to play"))) 
                         players[i].hand.pop(int(input("which blue card would you like to play"))) 
                         players[i].hand.pop(int(input("which blue card would you like to play"))) 
                         players[i].hand.pop(int(input("which blue card would you like to play"))) 
+                        b.cureddiseases['blue']=1 
                     if numred>=5 and b.cureddiseases['red']==0:
                         players[i].hand.pop(int(input("which red card would you like to play"))) 
                         players[i].hand.pop(int(input("which red card would you like to play"))) 
                         players[i].hand.pop(int(input("which red card would you like to play"))) 
                         players[i].hand.pop(int(input("which red card would you like to play"))) 
                         players[i].hand.pop(int(input("which red card would you like to play"))) 
+                        b.cureddiseases['red']=1 
                     if numblack>=5 and b.cureddiseases['black']==0:
                         players[i].hand.pop(int(input("which black card would you like to play"))) 
                         players[i].hand.pop(int(input("which black card would you like to play"))) 
                         players[i].hand.pop(int(input("which black card would you like to play"))) 
                         players[i].hand.pop(int(input("which black card would you like to play"))) 
                         players[i].hand.pop(int(input("which black card would you like to play"))) 
+                        b.cureddiseases['black']=1 
 ####draw 2 player cards
             for j in range(2):
                 if len(players[i].hand)<7:

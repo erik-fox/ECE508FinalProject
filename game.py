@@ -46,6 +46,7 @@ def displaygamestate(b,players):
     print(b.diseasecubes)
     print('\n')
     for i in range(len(players)):
+        print("Player City: " +players[i].role.city.city)
         print("Player "+str(i)+" Hand:")
         print(players[i].hand)
         print('\n') 
@@ -141,9 +142,19 @@ def game():
                             print("2: Build research station")
                 if players[i].role.city.redcubes or players[i].role.city.bluecubes or players[i].role.city.blackcubes or players[i].role.city.yellowcubes:
                     print("3: Treat disease")
-                print("4: Share Knowledge")
+                if players[i].role.city.city in players[i].hand:
+                    print("4a: Share Knowledge")
+                else:
+                        for k in range(numplayers):
+                            if i !=k:
+                                if players[i].role.city.city in players[k].hand:
+                                    print("4b: Share Knowledge")
+
                 print("5: Discover a cure")
                 action=int(input("Enter selection"))
+                
+
+
                 if action == 1:
                     print("legal moves:")
                     if players[i].role.city.city in players[i].hand:
@@ -179,7 +190,21 @@ def game():
                         if input('red? y/n') == 'y':
                             players[i].role.city.decredcube()
                             b.diseasecubes['red']=b.diseasecubes['red']-1
-               # elif action ==4:
+                elif action ==4:
+                    if players[i].role.city.city in players[i].hand:
+                        numplayer=int(input('Which player would you like to share with?'))
+                        numcard=int(input('Which card are you sharing?'))
+                        players[numplayer].hand.append(players[i].hand[numcard])
+                        players[i].hand.remove(players[i].role.city.city)
+                    else:
+                        for k in range(numplayers):
+                            if i !=k:
+                                if players[i].role.city.city in players[k].hand:
+                                    answer=input('Do you want to share with player '+str(k)+'? y/n')
+                                    if answer =='y':
+                                        numcard=int(input('Which card would you like from this player)'))
+                                        players[i].hand.append(players[k].hand[numcard])
+                                        players[k].hand.pop(numcard)
                # else:
 ####draw 2 player cards
           #  for j in range(2):

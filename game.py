@@ -264,6 +264,7 @@ def game():
                                         for m in range(len(b.map.list[b.infectiondeck.discardpile[len(b.infectiondeck.discardpile)-1]].connections)):
                                             b.map.list[b.map.list[b.infectiondeck.discardpile[len(b.infectiondeck.discardpile)-1]].connections[m]].yellowcube+=1
                                             b.diseasecubes['yellow']-=1
+                                        b.outbreaks+=1
                                     else:
                                         b.map.list[b.infectiondeck.discardpile[len(b.infectiondeck.discardpile)-1]].incyellowcubes()
                                         b.diseasecubes['yellow']-=1
@@ -273,6 +274,7 @@ def game():
                                         for m in range(len(b.map.list[b.infectiondeck.discardpile[len(b.infectiondeck.discardpile)-1]].connections)):
                                             b.map.list[b.map.list[b.infectiondeck.discardpile[len(b.infectiondeck.discardpile)-1]].connections[m]].bluecube+=1
                                             b.diseasecubes['blue']-=1
+                                        b.outbreaks+=1
                                     else:
                                         b.map.list[b.infectiondeck.discardpile[len(b.infectiondeck.discardpile)-1]].incbluecube()
                                         b.diseasecubes['blue']-=1
@@ -282,6 +284,7 @@ def game():
                                         for m in range(len(b.map.list[b.infectiondeck.discardpile[len(b.infectiondeck.discardpile)-1]].connections)):
                                             b.map.list[b.map.list[b.infectiondeck.discardpile[len(b.infectiondeck.discardpile)-1]].connections[m]].redcube+=1
                                             b.diseasecubes['red']-=1
+                                        b.outbreaks+=1
                                     else:
                                         b.map.list[b.infectiondeck.discardpile[len(b.infectiondeck.discardpile)-1]].incredcube()
                                         b.diseasecubes['red']-=1
@@ -291,6 +294,7 @@ def game():
                                         for m in range(len(b.map.list[b.infectiondeck.discardpile[len(b.infectiondeck.discardpile)-1]].connections)):
                                             b.map.list[b.map.list[b.infectiondeck.discardpile[len(b.infectiondeck.discardpile)-1]].connections[m]].blackcube+=1
                                             b.diseasecubes['black']-=1
+                                        b.outbreaks+=1
                                     else:
                                         b.map.list[b.infectiondeck.discardpile[len(b.infectiondeck.discardpile)-1]].incblackcubes()
                                         b.diseasecubes['black']-=1
@@ -303,6 +307,7 @@ def game():
                         for m in range( len(b.map.list[b.infectiondeck.discardpile[len(b.infectiondeck.discardpile)-1]].connections)):
                             b.map.list[b.map.list[b.infectiondeck.discardpile[len(b.infectiondeck.discardpile)-1]].connections[m]].yellowcubes+=1
                             b.diseasecubes['yellow']-=1
+                        b.outbreaks+=1
                     else:
                         b.map.list[b.infectiondeck.discardpile[len(b.infectiondeck.discardpile)-1]].incyellowcubes()
                         b.diseasecubes['yellow']-=1
@@ -311,6 +316,7 @@ def game():
                         for m in range( len(b.map.list[b.infectiondeck.discardpile[len(b.infectiondeck.discardpile)-1]].connections)):
                             b.map.list[b.map.list[b.infectiondeck.discardpile[len(b.infectiondeck.discardpile)-1]].connections[m]].bluecubes+=1
                             b.diseasecubes['blue']-=1
+                        b.outbreaks+=1
                     else:
                         b.map.list[b.infectiondeck.discardpile[len(b.infectiondeck.discardpile)-1]].incbluecube()
                         b.diseasecubes['blue']-=1
@@ -319,6 +325,7 @@ def game():
                         for m in range( len(b.map.list[b.infectiondeck.discardpile[len(b.infectiondeck.discardpile)-1]].connections)):
                             b.map.list[b.map.list[b.infectiondeck.discardpile[len(b.infectiondeck.discardpile)-1]].connections[m]].redcubes+=1
                             b.diseasecubes['red']-=1
+                        b.outbreaks+=1
                     else:
                         b.map.list[b.infectiondeck.discardpile[len(b.infectiondeck.discardpile)-1]].incredcube()
                         b.diseasecubes['red']-=1
@@ -327,6 +334,7 @@ def game():
                         for m in range( len(b.map.list[b.infectiondeck.discardpile[len(b.infectiondeck.discardpile)-1]].connections)):
                             b.map.list[b.map.list[b.infectiondeck.discardpile[len(b.infectiondeck.discardpile)-1]].connections[m]].blackcubes+=1
                             b.diseasecubes['black']-=1
+                        b.outbreaks+=1
                     else:
                         b.map.list[b.infectiondeck.discardpile[len(b.infectiondeck.discardpile)-1]].incblackcubes()
                         b.diseasecubes['black']-=1

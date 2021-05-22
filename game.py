@@ -339,8 +339,18 @@ def game():
                         b.map.list[b.infectiondeck.discardpile[len(b.infectiondeck.discardpile)-1]].incblackcubes()
                         b.diseasecubes['black']-=1
 
-            input('continue')
 #### check if game is over before going to next player
-        #break
+            if b.outbreaks ==8:
+                print("you lose")
+                break
+            if len(b.playerdeck.playercards)==0:
+                print("you lose")
+                break
+            if b.diseasecubes['yellow']==0 and b.diseasecubes['blue']==0 and b.diseasecubes['red']==0 and b.diseasecubes['black']==0:
+                print("you lose")
+                break
+            if b.cureddiseases['yellow']==1 and b.cureddiseases['red']==1 and b.cureddiseases['blue']==1 and b.cureddiseases['black']==1:
+                print("congrats you win")
+                break
 game()
 

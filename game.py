@@ -143,14 +143,16 @@ def game():
                 if players[i].role.city.redcubes or players[i].role.city.bluecubes or players[i].role.city.blackcubes or players[i].role.city.yellowcubes:
                     print("3: Treat disease")
                 if players[i].role.city.city in players[i].hand:
-                    print("4a: Share Knowledge")
+                    print("4: Share Knowledge")
                 else:
                         for k in range(numplayers):
                             if i !=k:
                                 if players[i].role.city.city in players[k].hand:
-                                    print("4b: Share Knowledge")
+                                    print("4: Share Knowledge")
                                     break
-                print("5: Discover a cure")
+                if players[i].role.city.researchstation ==1:
+                    print("5: Discover a cure")
+
                 action=int(input("Enter selection"))
                 
 
@@ -177,19 +179,19 @@ def game():
                     if players[i].role.city.yellowcubes:
                         if input('yellow? y/n') == 'y':
                             players[i].role.city.decyellowcube()
-                            b.diseasecubes['yellow']=b.diseasecubes['yellow']-1
+                            b.diseasecubes['yellow']=b.diseasecubes['yellow']+1
                     elif players[i].role.city.bluecubes:
                         if input('blue? y/n') == 'y':
                             players[i].role.city.decbluecube()
-                            b.diseasecubes['blue']=b.diseasecubes['blue']-1
+                            b.diseasecubes['blue']=b.diseasecubes['blue']+1
                     elif players[i].role.city.blackcubes:
                         if input('black? y/n') == 'y':
                             players[i].role.city.decblackcube()
-                            b.diseasecubes['black']=b.diseasecubes['black']-1
+                            b.diseasecubes['black']=b.diseasecubes['black']+1
                     else:
                         if input('red? y/n') == 'y':
                             players[i].role.city.decredcube()
-                            b.diseasecubes['red']=b.diseasecubes['red']-1
+                            b.diseasecubes['red']=b.diseasecubes['red']+1
                 elif action ==4:
                     if players[i].role.city.city in players[i].hand:
                         numplayer=int(input('Which player would you like to share with?'))
@@ -206,12 +208,98 @@ def game():
                                         players[i].hand.append(players[k].hand[numcard])
                                         players[k].hand.pop(numcard)
                                         break
-               # else:
+                elif action ==5:
+                    numyellow=0
+                    numblack=0
+                    numblue=0
+                    numred=0
+                    for k in range(len(players[i].hand)):
+                        if players[i].hand[k] in b.map.yellowcities:
+                            numyellow=numyellow+1
+                        if players[i].hand[k] in b.map.blackcities:
+                            numblack=numblack+1
+                        if players[i].hand[k] in b.map.bluecities:
+                            numblue=numblue+1
+                        if players[i].hand[k] in b.map.redcities:
+                            numred=numred+1
+                    if numyellow>=5 and b.cureddiseases['yellow']==0:
+                        players[i].hand.pop(int(input("which yellow card would you like to play")))
+                        players[i].hand.pop(int(input("which yellow card would you like to play")))
+                        players[i].hand.pop(int(input("which yellow card would you like to play"))) 
+                        players[i].hand.pop(int(input("which yellow card would you like to play")))
+                        players[i].hand.pop(int(input("which yellow card would you like to play")))
+                    
+                    if numblue>=5 and b.cureddiseases['blue']==0:
+                        players[i].hand.pop(int(input("which blue card would you like to play"))) 
+                        players[i].hand.pop(int(input("which blue card would you like to play"))) 
+                        players[i].hand.pop(int(input("which blue card would you like to play"))) 
+                        players[i].hand.pop(int(input("which blue card would you like to play"))) 
+                        players[i].hand.pop(int(input("which blue card would you like to play"))) 
+                    if numred>=5 and b.cureddiseases['red']==0:
+                        players[i].hand.pop(int(input("which red card would you like to play"))) 
+                        players[i].hand.pop(int(input("which red card would you like to play"))) 
+                        players[i].hand.pop(int(input("which red card would you like to play"))) 
+                        players[i].hand.pop(int(input("which red card would you like to play"))) 
+                        players[i].hand.pop(int(input("which red card would you like to play"))) 
+                    if numblack>=5 and b.cureddiseases['black']==0:
+                        players[i].hand.pop(int(input("which black card would you like to play"))) 
+                        players[i].hand.pop(int(input("which black card would you like to play"))) 
+                        players[i].hand.pop(int(input("which black card would you like to play"))) 
+                        players[i].hand.pop(int(input("which black card would you like to play"))) 
+                        players[i].hand.pop(int(input("which black card would you like to play"))) 
 ####draw 2 player cards
-          #  for j in range(2):
+            for j in range(2):
+                if len(players[i].hand)<7:
+                    b.playerdeck.playcard()
+                    players[i].hand.append(b.playerdeck.discardpile.pop())
+                    if players[i].hand[len(players[i].hand)-1]=='Epidemic':
+                        players[i].hand.remove('Epidemic')
+                        b.outbreaks+=1
+                        b.infectionrate.pop(0)
+                        for k in range(3):
+                            b.infectiondeck.playcard()
+                            if b.infectiondeck.discardpile[len(b.infectiondeck.discardpile)-1] in b.map.yellowcities:
+                                if b.cureddiseases['yellow'] ==0:
+                                    if b.map.list[b.infectiondeck.discardpile[len(b.infectiondeck.discardpile)-1]].yellowcubes==3:
+                                        for m in range(len(b.map.list[b.infectiondeck.discardpile[len(b.infectiondeck.discardpile)-1]].connections)):
+                                            b.map.list[b.infectiondeck.discardpile[len(b.infectiondeck.discardpile)-1]].connections[m].yellowcube+=1
+                                            b.diseasecubes['yellow']-=1
+                                    else:
+                                        b.map.list[b.infectiondeck.discardpile[len(b.infectiondeck.discardpile)-1]].incyellowcubes()
+                                        b.diseasecubes['yellow']-=1
+                            if b.infectiondeck.discardpile[len(b.infectiondeck.discardpile)-1] in b.map.bluecities:
+                                if b.cureddiseases['blue'] ==0:
+                                    if b.map.list[b.infectiondeck.discardpile[len(b.infectiondeck.discardpile)-1]].bluecubes==3:
+                                        for m in range(len(b.map.list[b.infectiondeck.discardpile[len(b.infectiondeck.discardpile)-1]].connections)):
+                                            b.map.list[b.infectiondeck.discardpile[len(b.infectiondeck.discardpile)-1]].connections[m].bluecube+=1
+                                            b.diseasecubes['blue']-=1
+                                    else:
+                                        b.map.list[b.infectiondeck.discardpile[len(b.infectiondeck.discardpile)-1]].incbluecube()
+                                        b.diseasecubes['blue']-=1
+                            if b.infectiondeck.discardpile[len(b.infectiondeck.discardpile)-1] in b.map.redcities:
+                                if b.cureddiseases['red'] ==0:
+                                    if b.map.list[b.infectiondeck.discardpile[len(b.infectiondeck.discardpile)-1]].redcubes==3:
+                                        for m in range(len(b.map.list[b.infectiondeck.discardpile[len(b.infectiondeck.discardpile)-1]].connections)):
+                                            b.map.list[b.infectiondeck.discardpile[len(b.infectiondeck.discardpile)-1]].connections[m].redcube+=1
+                                            b.diseasecubes['red']-=1
+                                    else:
+                                        b.map.list[b.infectiondeck.discardpile[len(b.infectiondeck.discardpile)-1]].incredcube()
+                                        b.diseasecubes['red']-=1
+                            if b.infectiondeck.discardpile[len(b.infectiondeck.discardpile)-1] in b.map.blackcities:
+                                if b.cureddiseases['black'] ==0:
+                                    if b.map.list[b.infectiondeck.discardpile[len(b.infectiondeck.discardpile)-1]].blackcubes==3:
+                                        for m in range(len(b.map.list[b.infectiondeck.discardpile[len(b.infectiondeck.discardpile)-1]].connections)):
+                                            b.map.list[b.infectiondeck.discardpile[len(b.infectiondeck.discardpile)-1]].connections[m].blackcube+=1
+                                            b.diseasecubes['black']-=1
+                                    else:
+                                        b.map.list[b.infectiondeck.discardpile[len(b.infectiondeck.discardpile)-1]].incblackcubes()
+                                        b.diseasecubes['black']-=1
+                        b.infectiondeck.return2deck()    
 ####infect cities
-          #  for j in range(b.infectionrate[0]):
+            for j in range(b.infectionrate[0]):
+                b.infectiondeck.playcard()
+                
 #### check if game is over before going to next player
-        break
+        #break
 game()
 

@@ -149,7 +149,7 @@ def game():
                             if i !=k:
                                 if players[i].role.city.city in players[k].hand:
                                     print("4b: Share Knowledge")
-
+                                    break
                 print("5: Discover a cure")
                 action=int(input("Enter selection"))
                 
@@ -205,6 +205,7 @@ def game():
                                         numcard=int(input('Which card would you like from this player)'))
                                         players[i].hand.append(players[k].hand[numcard])
                                         players[k].hand.pop(numcard)
+                                        break
                # else:
 ####draw 2 player cards
           #  for j in range(2):
